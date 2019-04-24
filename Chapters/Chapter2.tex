@@ -1,0 +1,97 @@
+% Chapter 1
+
+\chapter{Division of Gauss Distribution } % Main chapter title
+
+\label{chapter 2} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+%----------------------------------------------------------------------------------------
+
+% Define some commands to keep the formatting separated from the content 
+
+%----------------------------------------------------------------------------------------
+
+\section{Abstract}
+
+We know that the Division of two Gaussian Probability distribution function will be Gaussian Probability Distribution Function. Please be care full, it is only the Algebra calculation.$[1]$
+
+
+
+
+
+\section{Division of two Uni-variate Gaussian PDFs}
+
+We have two Gaussian Function, that is $PDFs(f(x))$ and $PDFs(g(x))$, with means of $\mu_f$ and $\mu_g$ and standard deviation $\sigma_f$ and $\sigma_g$.
+
+$$PDFs(f(x)) = \frac{1}{\sqrt{2\pi}\sigma_f}{e^{-\frac{{(x-\mu _f)}^2}{2{(\sigma_f)}^2}}}$$
+
+and 
+
+$$PDFs(g(x)) = \frac{1}{\sqrt{2\pi}\sigma_g}{e^{-\frac{{(x-\mu _g)}^2}{2{(\sigma_g)}^2}}}$$
+
+ Their division will be 
+ 
+ \begin{equation}
+     \frac{PDFs(f(x))}{PDFs(g(x))} = \frac{\frac{1}{\sqrt{2\pi}\sigma_f}{e^{-\frac{{(x-\mu _f)}^2}{2{(\sigma_f)}^2}}}}{\frac{1}{\sqrt{2\pi}\sigma_g}{e^{-\frac{{(x-\mu _g)}^2}{2{(\sigma_g)}^2}}}}
+\end{equation}
+
+after some calculation
+
+\begin{equation}
+     \frac{PDFs(f(x))}{PDFs(g(x))} = \frac{\sigma_g}{\sigma_f} *  {e^{-\frac{{(x-\mu _g)}^2}{2{(\sigma_g)}^2} + {\frac{{(x-\mu _g)}^2}{2{(\sigma_g)}^2}}}}
+\end{equation}
+     
+Taking the power term of the exponential  
+
+$$\alpha = \frac{(x-\mu_f)^2}{2\sigma_f^2} - \frac{(x-\mu_g)^2}{2\sigma_g^2} $$
+
+We would like to change the above in the quadratic equation
+$$\alpha = \frac{x^2(\sigma_g^2-\sigma_f^2) -2x(\sigma_g^2\mu_f-\sigma_f^2\mu_g) + (\mu_f^2\sigma_g^2 - \mu_g^2\sigma_f^2) }{2\sigma_f^2\sigma_g^2} $$
+
+Dividing through by the coefficient of $x^2$ gives
+
+\begin{equation}
+ \alpha =  \frac{x^2 - 2x\frac{\sigma_g^2\mu_f-\sigma_f^2\mu_g}{\sigma_g^2-\sigma_f^2} + \frac{\mu_f^2\sigma_g^2 - \mu_g^2\sigma_f^2}{\sigma_f^2 - \sigma_g^2}}{2 \frac{\sigma_f^2\sigma_g^2}{\sigma_g^2 - \sigma_f^2}}  
+\end{equation}
+
+
+ If we add the term $\Bigg(\frac{\sigma_g^2\mu_f-\sigma_f^2\mu_g}{\sigma_g^2-\sigma_f^2}\Bigg)^2$ and subtract the term $\Bigg(\frac{\sigma_g^2\mu_f-\sigma_f^2\mu_g}{\sigma_g^2-\sigma_f^2}\Bigg)^2$. It will not effect the the mathematical equation. The main motive to make easy in quadratic equation.
+ Now the $\alpha$ would be
+ 
+ $$\alpha = \frac{x^2 - 2x\frac{\sigma_g^2\mu_f-\sigma_f^2\mu_g}{\sigma_g^2-\sigma_f^2} + \Bigg(\frac{\sigma_g^2\mu_f-\sigma_f^2\mu_g}{\sigma_g^2-\sigma_f^2}\Bigg)^2 - \Bigg(\frac{\sigma_g^2\mu_f-\sigma_f^2\mu_g}{\sigma_g^2-\sigma_f^2}\Bigg)^2  +\frac{\mu_f^2\sigma_g^2 - \mu_g^2\sigma_f^2}{\sigma_g^2 - \sigma_f^2}}{2 \frac{\sigma_f^2\sigma_g^2}{\sigma_g^2-\sigma_f^2}} $$
+ 
+ After some manipulation, this reduces to 
+ 
+ 
+\begin{equation}
+    \alpha = \frac{(x-\mu_{fg})^2}{2\sigma_{fg}^2} - \frac{(\mu_f - \mu_g)^2}{2(\sigma_g^2 - \sigma_f^2)}
+\end{equation}
+
+where, 
+$$\sigma_{fg}^2 = \frac{\sigma_g^2 \sigma_f^2}{\sigma_g^2 - \sigma_f^2}$$
+
+
+$$\mu_{fg} = \frac{\mu_f\sigma_g^2 - \mu_g \sigma_f^2 }{\sigma_g^2 - \sigma_f^2}$$
+
+Now time to put Eqn. $2.4$ into the Eqn. $2.2$
+
+
+$$\frac{PDFs(f(x))}{PDFs(g(x))}  =  \frac{\sigma_g}{\sigma_f} *  e^{-\frac{(x-\mu_{fg})^2}{2\sigma_{fg}^2}} *  e^{-\frac{(\mu_f-\mu_g)^2}{2(\sigma_g^2 - \sigma_f^2)}}$$
+
+For making the Gauss distribution we will multiply by $\sqrt{2\pi}$ up and down to the above equation.
+
+$$\frac{PDFs(f(x))}{PDFs(g(x))}= \frac{1}{\sqrt{2\pi}} e^{-\frac{(x-\mu_{fg})^2}{2\sigma_{fg}^2}} \Bigg( \frac{\sqrt{2\pi} \sigma_g}{\sigma_f}  e^{-\frac{(\mu_f-\mu_g)^2}{2(\sigma_g^2 -\sigma_f^2 )}}   \Bigg) $$
+
+Hence the final Gaussian probability distribution would be 
+
+\begin{equation}
+    \boxed{\frac{PDFs(f(x))}{PDFs(g(x))} = \frac{G}{\sqrt{2\pi}} e^{-\frac{(x-\mu_{fg})^2}{2\sigma_{fg}^2}}}
+\end{equation}
+
+where, 
+
+$$G = \frac{\sqrt{2\pi} \sigma_g}{\sigma_f}  e^{\frac{(\mu_f-\mu_g)^2}{2(\sigma_g^2 -\sigma_f^2 )}} = constant $$
+
+$$\sigma_{fg}^2 = \frac{\sigma_g^2 \sigma_f^2}{\sigma_g^2 - \sigma_f^2}$$
+
+
+$$\mu_{fg} = \frac{\mu_f\sigma_g^2 - \mu_g \sigma_f^2 }{\sigma_g^2 - \sigma_f^2}$$

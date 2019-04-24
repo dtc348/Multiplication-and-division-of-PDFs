@@ -1,0 +1,105 @@
+% Chapter 1
+
+\chapter{Multiplication of Gauss Distribution } % Main chapter title
+
+\label{chapter 1} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+%----------------------------------------------------------------------------------------
+
+% Define some commands to keep the formatting separated from the content 
+\newcommand{\keyword}[1]{\textbf{#1}}
+\newcommand{\tabhead}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\texttt{\bfseries#1}}
+\newcommand{\option}[1]{\texttt{\itshape#1}}
+
+%----------------------------------------------------------------------------------------
+
+\section{Abstract}
+
+We know that multiplication of two Gaussian Probability distribution function will be Gaussian Probability Distribution Function. This calculation might be helpful for finding the multiplication of PDFs. Please be care full it is only the Algebra calculation.
+
+
+
+
+
+\section{Multiplication of two Uni-variate Gaussian PDFs}
+
+We have two Gaussian function, that is $PDFs(f(x))$ and $PDFs(g(x))$, with means of $\mu_f$ and $\mu_g$ and standard deviation $\sigma_f$ and $\sigma_g$.
+
+$$PDFs(f(x)) = \frac{1}{\sqrt{2\pi}\sigma_f}{e^{-\frac{{(x-\mu _f)}^2}{2{(\sigma_f)}^2}}}$$
+
+and 
+
+$$PDFs(g(x)) = \frac{1}{\sqrt{2\pi}\sigma_g}{e^{-\frac{{(x-\mu _g)}^2}{2{(\sigma_g)}^2}}}$$
+
+ Their multiplication will be 
+ 
+ \begin{equation}
+     PDFs(f(x)) \times PDFs(g(x)) = \frac{1}{\sqrt{2\pi}\sigma_f}{e^{-\frac{{(x-\mu _f)}^2}{2{(\sigma_f)}^2}}} * {\frac{1}{\sqrt{2\pi}\sigma_g}{e^{-\frac{{(x-\mu _g)}^2}{2{(\sigma_g)}^2}}}}
+\end{equation}
+
+after some calculation
+
+\begin{equation}
+      PDFs(f(x)) \times PDFs(g(x)) = \frac{1}{\sqrt{2\pi}\sigma_f \sigma_g} {e^{-( \frac{{(x-\mu _f)}^2}{2{(\sigma_f)}^2} + \frac{{(x-\mu _g)}^2}{2{(\sigma_g)}^2})}}
+\end{equation}
+     
+Taking the power term of the exponential  
+
+$$\alpha = \frac{(x-\mu_f)^2}{2\sigma_f^2} + \frac{(x-\mu_g)^2}{2\sigma_g^2} $$
+
+We would like to change the above in the quadratic equation
+$$\alpha = \frac{x^2(\sigma_g^2 + \sigma_f^2) -2x(\sigma_g^2\mu_f+\sigma_f^2\mu_g) + (\mu_f^2\sigma_g^2 + \mu_g^2\sigma_f^2) }{2\sigma_f^2\sigma_g^2} $$
+
+Dividing through by the coefficient of $x^2$ gives
+
+\begin{equation}
+ \alpha =  \frac{x^2 - 2x\frac{\sigma_g^2\mu_f+\sigma_f^2\mu_g}{\sigma_g^2+\sigma_f^2} + \frac{\mu_f^2\sigma_g^2 + \mu_g^2\sigma_f^2}{\sigma_f^2 + \sigma_g^2}}{2 \frac{\sigma_f^2\sigma_g^2}{\sigma_g^2 + \sigma_f^2}}  
+\end{equation}
+
+
+ If we add the term $\Bigg(\frac{\sigma_g^2\mu_f+\sigma_f^2\mu_g}{\sigma_g^2+\sigma_f^2}\Bigg)^2$ and subtract the term $\Bigg(\frac{\sigma_g^2\mu_f+\sigma_f^2\mu_g}{\sigma_g^2+\sigma_f^2}\Bigg)^2$ in the above part. It will not effect the the mathematical equation. The main motive to make easy in quadratic equation. \hfill
+ 
+ Now the $\alpha$ would be
+ 
+ $$\alpha = \frac{x^2 - 2x\frac{\sigma_g^2\mu_f+\sigma_f^2\mu_g}{\sigma_g^2+\sigma_f^2} + \Bigg(\frac{\sigma_g^2\mu_f+\sigma_f^2\mu_g}{\sigma_g^2+\sigma_f^2}\Bigg)^2 - \Bigg(\frac{\sigma_g^2\mu_f+\sigma_f^2\mu_g}{\sigma_g^2+\sigma_f^2}\Bigg)^2  +\frac{\mu_f^2\sigma_g^2 + \mu_g^2\sigma_f^2}{\sigma_g^2 + \sigma_f^2}}{2 \frac{\sigma_f^2\sigma_g^2}{\sigma_g^2+\sigma_f^2}} $$
+ 
+ After some guidance, this reduces to 
+ 
+ 
+\begin{equation}
+    \alpha = \frac{(x-\mu_{fg})^2}{2\sigma_{fg}^2} + \frac{(\mu_f - \mu_g)^2}{2(\sigma_g^2 + \sigma_f^2)}
+\end{equation}
+
+where, 
+$$\sigma_{fg}^2 = \frac{\sigma_g^2 \sigma_f^2}{\sigma_g^2 + \sigma_f^2}$$
+
+
+$$\mu_{fg} = \frac{\mu_f\sigma_g^2 + \mu_g \sigma_f^2 }{\sigma_g^2 + \sigma_f^2}$$
+
+Now time to put Eqn. $1.4$ into the Eqn. $1.2$
+
+
+$$  PDFs(f(x)) \times PDFs(g(x))  =  \frac{1}{\sqrt{2 \pi} \sigma_{fg}} *  e^{-\frac{(x-\mu_{fg})^2}{2\sigma_{fg}^2}} *  e^{-\frac{(\mu_f-\mu_g)^2}{2(\sigma_g^2 + \sigma_f^2)}}$$
+ Now we would like to make some constant term here, that would be named Gaussian constant, for that we would like to multiply by $\frac{\sigma_{fg}}{\sigma_{fg}}$.
+ 
+ After arranging, it will give
+ 
+
+$$  PDFs(f(x)) \times PDFs(g(x)) = \frac{1}{\sqrt{2\pi}\sigma_{fg} } e^{-\frac{(x-\mu_{fg})^2}{2\sigma_{fg}^2}} *  \frac{1}{\sqrt{2\pi(\sigma_g^2 + \sigma_f^2) }} e^{-\frac{(\mu_f-\mu_g)^2}{2 (\sigma_g^2 + \sigma_f^2)}}$$
+
+Hence the final Gaussian probability distribution would be  
+
+\begin{equation}
+    \boxed{ PDFs(f(x)) \times PDFs(g(x)) = \frac{G}{\sqrt{2\pi} \sigma_{fg}} e^{-\frac{(x-\mu_{fg})^2}{2\sigma_{fg}^2}}}
+\end{equation}
+
+where, 
+
+$$G = \frac{1}{\sqrt{2 \pi (\sigma_f^2 +\sigma_g^2)}}  e^{- \frac{(\mu_f-\mu_g)^2}{2(\sigma_g^2 +\sigma_f^2 )}} = constant $$
+
+$$\sigma_{fg}^2 = \frac{\sigma_g^2 \sigma_f^2}{\sigma_g^2 + \sigma_f^2}$$
+
+
+$$\mu_{fg} = \frac{\mu_f\sigma_g^2 + \mu_g \sigma_f^2 }{\sigma_g^2 + \sigma_f^2}$$
